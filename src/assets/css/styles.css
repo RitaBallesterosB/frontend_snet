@@ -65,6 +65,10 @@ body {
 }
 
 
+.layout.error {
+    grid-template-columns: 100% !important;
+  }
+
 /*ESTILOS NAVBAR*/
 .layout__navbar{
     width: 100%;
