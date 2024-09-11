@@ -2,6 +2,7 @@ import avatar from '../../assets/img/default_user.png';
 
 export const Feed = () => {
 
+
   return (
     <>
       <header className="content__header">
