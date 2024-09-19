@@ -1,3 +1,4 @@
+
 import PropTypes from 'prop-types';
 import avatar from '../../assets/img/default.png';
 import { Global } from "../../helpers/Global";
@@ -97,7 +98,7 @@ export const UserList = ({ users, getUsers, following, setFollowing, more, page,
                 <div className="avatar">
                   <div className="general-info__container-avatar">
                     {user.image && user.image !== "default.png" ? (
-                      <img src={`${Global.url}user/avatar/${user.image}`} className="container-avatar__img" alt="Foto de perfil" />
+                      <img src={user.image} className="container-avatar__img" alt="Foto de perfil" />
                     ) : (
                       <img src={avatar} className="container-avatar__img" alt="Foto de perfil" />
                     )}
@@ -139,13 +140,13 @@ export const UserList = ({ users, getUsers, following, setFollowing, more, page,
         <br />
       </div>
 
-      {more &&
+      {more && (
         <div className="content__container-btn">
           <button className="content__btn-more-post" onClick={nextPage}>
             Ver más personas
           </button>
         </div>
-      }
+      )}
     </>
   );
 }
@@ -159,5 +160,5 @@ UserList.propTypes = {
   more: PropTypes.bool.isRequired,
   page: PropTypes.number.isRequired,
   setPage: PropTypes.func,
-  setCounters: PropTypes.func 
+  setCounters: PropTypes.func
 };

@@ -1,3 +1,4 @@
+
 import { Global } from "../../helpers/Global";
 import { useEffect, useState } from 'react';
 import useAuth from "../../hooks/useAuth";
@@ -54,7 +55,7 @@ export const People = () => {
 
         let newUsers = filteredUsers;
 
-        if (users.length >= 1) {
+        if (users.length > 0) {
           newUsers = [...users, ...filteredUsers];
         }
 
@@ -70,20 +71,21 @@ export const People = () => {
         });
 
         const followData = await followResponse.json();
+
         if (followData.status === "success") {
           setFollowing(followData.users_following);
         }
 
         // Paginación. Comprobar si existen más usuarios para mostrar en la respuesta de la petición
-        // (data.totalDocs - 5) porque el listado de usuarios ya tiene 5 usuarios en pantalla que no está contabilizando en user.length
-        if (users.length >= (data.totalDocs - 5)) {
+        // (data.totalDocs - 10) porque el listado de usuarios ya tiene 10 usuarios en pantalla que no está contabilizando en user.length
+        if (users.length >= data.totalDocs - 10) {
           setMore(false);
         }
       }
     } catch (error) {
       console.error("Error en la petición al backend:", error);
     }
-  }
+  };
 
   return (
     <>

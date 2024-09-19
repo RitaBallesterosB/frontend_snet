@@ -56,7 +56,7 @@ export const Config = () => {
         setSaved("saved");
 
         // Seleccionar el elemento del formulario donde se va a subir el archivo del avatar
-        const fileInput = document.querySelector("#file0");
+        const fileInput = document.querySelector("#file-avatar");
         if (fileInput.files[0]) {
           await uploadAvatar(fileInput.files[0], token);
         }
@@ -234,18 +234,18 @@ export const Config = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="file0">Avatar</label>
+              <label htmlFor="file">Avatar</label>
               <div className="avatar">
                 <div className="general-info__container-avatar">
                   {auth.image !== "default.png" ? (
-                    <img src={`${Global.url}user/avatar/${auth.image}`} className="container-avatar__img" alt="Foto de perfil" />
+                    <img src={auth.image} className="container-avatar__img" alt="Foto de perfil" />
                   ) : (
                     <img src={avatar} className="container-avatar__img" alt="Foto de perfil" />
                   )}
                 </div>
               </div>
               <br/>
-              <input type="file" name="file0" id="file0" autoComplete="file0"/>
+              <input type="file" name="file0" id="file-avatar" autoComplete="file"/>
             </div>
             <input type="submit" value="Editar" className="btn btn-success" />
 

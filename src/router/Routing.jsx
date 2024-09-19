@@ -11,6 +11,9 @@ import { People } from '../components/user/People';
 import { Config } from '../components/user/Config';
 import { Following } from '../components/follow/Following';
 import { Followers } from '../components/follow/Followers';
+import { Profile } from '../components/user/Profile';
+import { MyPublications } from '../components/publication/MyPublications';
+
 
 export const Routing = () => {
   return (
@@ -33,6 +36,8 @@ export const Routing = () => {
             <Route path='logout' element={<Logout />} />
             <Route path='siguiendo/:userId' element={<Following />} />
             <Route path='seguidores/:userId' element={<Followers />} />
+            <Route path="perfil/:userId" element={<Profile/>} />
+            <Route path="mis-publicaciones" element={<MyPublications />} />
           </Route>
 
           {/* Configuramos la ruta para el error 404 */}
