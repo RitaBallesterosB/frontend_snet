@@ -46,13 +46,13 @@ export const Sidebar = () => {
         const formData = new FormData();
         formData.append("file0", fileInput.files[0]);
 
-        const uploadRequest = await fetch(Global.url + "publication/upload-avatar/" + data.publicationStored._id, {
-            method: "POST",
-            body: formData,
-            headers: {
-                "Authorization": token
-            }
-        });
+        const uploadRequest = await fetch(Global.url + "publication/upload-media/" + data.publicationStored._id, {
+          method: "POST",
+          body: formData,
+          headers: {
+              "Authorization": token
+          }
+      });
 
         const uploadData = await uploadRequest.json();
 
@@ -99,7 +99,7 @@ export const Sidebar = () => {
             </div>
 
             <div className="general-info__container-names">
-              <Link to={"/rsocial/perfil/"+auth._id}
+              <Link to={"/rsocial/perfil/"+ auth._id}
                 className="container-names__name">
                 {auth.name} {auth.last_name}
               </Link>
@@ -128,7 +128,7 @@ export const Sidebar = () => {
             </div>
 
             <div className="stats__following">
-              <Link to={"/rsocial/mis-publicaciones/"} className="following__link">
+              <Link to={"/rsocial/mis-publicaciones/ "} className="following__link">
                 <span className="following__title">Publicaciones</span>
                 <span className="following__number">
                   {" "}
@@ -177,7 +177,7 @@ export const Sidebar = () => {
               type="submit"
               value="Enviar"
               className="form-post__btn-submit"
-              disabled
+              disabled={!form.text || form.text.trim() === ""}
             />
           </form>
         </div>
