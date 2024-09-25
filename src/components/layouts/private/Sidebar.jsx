@@ -181,7 +181,6 @@ export const Sidebar = () => {
             />
           </form>
         </div>
-      </div>
-    </aside>
+      </div>    </aside>
   );
 };
